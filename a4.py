@@ -12,6 +12,27 @@ class TTTBoard:
 
     pass
 
+    def __init__(self):
+        self.board = ["*"] * 9
+
+    def __str__(self):
+        pass
+
+    def make_move(self, player, pos) -> bool:
+        if self.board[pos] != "*" or not (0 <= pos <= 8):
+            return False # move is invalid
+        else:
+            self.board[pos] = player
+            return True
+
+    def has_won(self, player) -> bool:
+        pass
+
+    def game_over(self) -> bool:
+        return not "*" in self.board or self.has_won(self, "X") or self.has_won(self, "O")
+
+    def clear(self):
+        self.board = ["*"] * 9
 
 def play_tic_tac_toe() -> None:
     """Uses your class to play TicTacToe"""
@@ -54,7 +75,6 @@ def play_tic_tac_toe() -> None:
         print(f"{players[1]} wins!")
     else:
         print(f"Board full, cat's game!")
-
 
 if __name__ == "__main__":
     # here are some tests. These are not at all exhaustive tests. You will DEFINITELY
