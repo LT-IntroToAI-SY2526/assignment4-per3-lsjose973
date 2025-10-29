@@ -27,7 +27,7 @@ class TTTBoard:
 
     def has_won(self, player) -> bool:
         win = [player] * 3
-        if self.board[:3] == win or self.board[3:6] or self.board[6:9]:
+        if self.board[:3] == win or self.board[3:6] == win or self.board[6:9] == win:
             return True
         if self.board[::3] == win or self.board[1::3] == win or self.board[2::3] == win:
             return True
@@ -35,10 +35,11 @@ class TTTBoard:
         diag_right = [self.board[2], self.board[4], self.board[6]]
         if win == diag_left or win == diag_right:
             return True
+        return False
 
 
     def game_over(self) -> bool:
-        return not "*" in self.board or self.has_won(self, "X") or self.has_won(self, "O")
+        return not "*" in self.board or self.has_won("X") or self.has_won("O")
 
     def clear(self):
         self.board = ["*"] * 9
