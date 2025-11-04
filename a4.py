@@ -69,7 +69,7 @@ def play_tic_tac_toe() -> None:
     while not brd.game_over():
         print(brd)
         move: str = input(f"Player {players[turn]} what is your move? ")
-
+        
         if not is_int(move):
             raise ValueError(
                 f"Given invalid position {move}, position must be integer between 0 and 8 inclusive"
@@ -119,4 +119,4 @@ if __name__ == "__main__":
     print("All tests passed!")
 
     # uncomment to play!
-    # play_tic_tac_toe()
+    play_tic_tac_toe()
